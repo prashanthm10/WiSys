@@ -10,12 +10,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.string.no;
-import static junit.runner.Version.id;
 
-/**
- * Created by Prashanth on 7/25/2017.
- */
 
 public class SqliteHelper extends SQLiteOpenHelper {
 

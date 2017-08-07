@@ -2,11 +2,6 @@ package com.example.prashanth.wisys;
 
 import com.google.gson.annotations.SerializedName;
 
-import static android.R.attr.id;
-
-/**
- * Created by Prashanth on 7/5/2017.
- */
 
 public class Gateway {
     @SerializedName("id")

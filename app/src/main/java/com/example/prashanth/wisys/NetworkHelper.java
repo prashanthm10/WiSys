@@ -7,9 +7,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
-/**
- * Created by ${SHASHIKANt} on 02-08-2017.
- */
 
 class NetworkHelper {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");

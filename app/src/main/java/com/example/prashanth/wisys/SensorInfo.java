@@ -2,9 +2,7 @@ package com.example.prashanth.wisys;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Prashanth on 7/10/2017.
- */
+
 
 public class SensorInfo {
     @SerializedName("gid")

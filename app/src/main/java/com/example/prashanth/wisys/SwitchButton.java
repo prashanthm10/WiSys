@@ -17,24 +17,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Checkable;
 
-/**
- * Created by ${SHASHIKANt} on 06-08-2017.
- */
+
 
 
 public class SwitchButton extends View implements Checkable {
     private static final int DEFAULT_WIDTH = dp2pxInt(58);
     private static final int DEFAULT_HEIGHT = dp2pxInt(36);
 
-    /**
-     * 动画状态：
-     * 1.静止
-     * 2.进入拖动
-     * 3.处于拖动
-     * 4.拖动-复位
-     * 5.拖动-切换
-     * 6.点击切换
-     * **/
     private final int ANIMATE_STATE_NONE = 0;
     private final int ANIMATE_STATE_PENDING_DRAG = 1;
     private final int ANIMATE_STATE_DRAGING = 2;

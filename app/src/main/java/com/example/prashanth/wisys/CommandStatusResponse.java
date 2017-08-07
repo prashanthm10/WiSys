@@ -2,9 +2,7 @@ package com.example.prashanth.wisys;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by ${SHASHIKANt} on 02-08-2017.
- */
+
 
 public class CommandStatusResponse {
     @SerializedName("gid")

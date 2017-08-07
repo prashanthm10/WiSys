@@ -1,8 +1,6 @@
 package com.example.prashanth.wisys;
 
-/**
- * Created by ${SHASHIKANt} on 06-08-2017.
- */
+
 
 import android.animation.ValueAnimator;
 import android.content.Context;

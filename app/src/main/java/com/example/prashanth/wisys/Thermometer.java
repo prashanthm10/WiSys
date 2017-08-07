@@ -1,8 +1,5 @@
 package com.example.prashanth.wisys;
 
-/**
- * Created by ${SHASHIKANt} on 06-08-2017.
- */
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by Prashanth on 7/10/2017.
- */
+
 
 public class SensorAdapter extends ArrayAdapter<SensorInfo> {
 

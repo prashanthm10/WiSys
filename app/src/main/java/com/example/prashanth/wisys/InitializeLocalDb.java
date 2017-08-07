@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.prashanth.wisys.rest.WiSysApiService;
 
@@ -17,9 +16,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by ${SHASHIKANt} on 28-07-2017.
- */
+
 
 public class InitializeLocalDb extends IntentService {
 

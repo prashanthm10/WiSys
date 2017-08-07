@@ -28,6 +28,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.os.Build.VERSION_CODES.M;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG ="LOGIN_ACTIVITY" ;
@@ -126,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         public void onReceive(Context context, Intent intent) {
             progressDialog.hide();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
-            SharedPreferences.Editor preferences=getSharedPreferences("wisys",MODE_WORLD_WRITEABLE).edit();
+            SharedPreferences.Editor preferences=getSharedPreferences("wisys",MODE_PRIVATE).edit();
             preferences.putBoolean("login",true);
             preferences.apply();
             finish();

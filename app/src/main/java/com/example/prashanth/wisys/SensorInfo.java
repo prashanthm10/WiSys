@@ -12,7 +12,7 @@ public class SensorInfo {
     @SerializedName("epid")
     int epid;
     @SerializedName("value")
-    int value;
+    float value;
     @SerializedName("stype")
     String stype;
     @SerializedName("sid")
@@ -52,7 +52,7 @@ public class SensorInfo {
         this.epid = epid;
     }
 
-    public int getVal() {
+    public float getVal() {
         return value;
     }
 

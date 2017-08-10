@@ -36,7 +36,7 @@ public class SensorDetailActivity extends AppCompatActivity {
     boolean datachanged=false;
     Button saveBtn;
     CmdStatusHandler cmdStatusHandler;
-    final static int EMPTY_RESPONSE=0,STATUS_NEW=1,STATUS_SUCCESS=2,STATUS_FAIL=3,QUERY_STATUS=4,ERROR=5;
+    final static int EMPTY_RESPONSE=100,STATUS_NEW=1,STATUS_SUCCESS=2,STATUS_FAIL=3,QUERY_STATUS=4,ERROR=5;
 
     final String BASE_URL="http://139.59.4.45:8500/api/";
 
@@ -141,7 +141,7 @@ public class SensorDetailActivity extends AppCompatActivity {
         cardView.setBackgroundColor(Color.argb(255,29,202,244));
         BatteryProgressView batteryProgressView=(BatteryProgressView)findViewById(R.id.cir_pb_battery);
         batteryProgressView.setVisibility(View.VISIBLE);
-        batteryProgressView.setProgress(sensorInfo.getVal());
+        batteryProgressView.setProgress((int)sensorInfo.getVal());
         seekBar.setEnabled(false);
         sensor_switch.setEnabled(false);
         saveBtn.setEnabled(false);
@@ -153,7 +153,7 @@ public class SensorDetailActivity extends AppCompatActivity {
         alert_img.setVisibility(View.VISIBLE);
         if(sensorInfo.getVal()!=0)
             sensor_switch.setChecked(true);
-        switch (sensorInfo.getVal()) {
+        switch ((int)sensorInfo.getVal()) {
             case 0:
                 alert_img.setBackground(getResources().getDrawable(R.drawable.ic_bulb_filled_grey));
                 break;
@@ -175,12 +175,12 @@ public class SensorDetailActivity extends AppCompatActivity {
         TextView textView=(TextView)findViewById(R.id.tv_message);
         sensor_switch.setVisibility(View.GONE);
         String message;
-        int i=sensorInfo.getVal();
+        float i=sensorInfo.getVal();
         if(i>=0 && i<=20){
             message="UNCOMFORTABLY DRY";
         }
         else if(i>20 && i<=60){
-            message="UNCOMFORTABLY DRY";
+            message="COMFORTABLE";
         }
         else{
             message="UNCOMFORTABLY WET";
@@ -199,7 +199,7 @@ public class SensorDetailActivity extends AppCompatActivity {
     private void pds(){
         ImageView pds_img=(ImageView)findViewById(R.id.imageView);
         pds_img.setVisibility(View.VISIBLE);
-        switch(sensorInfo.getVal()){
+        switch((int)sensorInfo.getVal()){
             case 0:
                 pds_img.setImageResource(R.drawable.ic_people_outline_black_24dp);
                 break;
@@ -257,7 +257,9 @@ public class SensorDetailActivity extends AppCompatActivity {
                 .baseUrl(BASE_URL)
                 .build();
         WiSysApiService wiSysApiService=retrofit.create(WiSysApiService.class);
-        Call<CommandResponse> call=wiSysApiService.setValue(sensorInfo.getGid(),sensorInfo.getSid(),progress);
+        //Call<CommandResponse> call=wiSysApiService.setValue(sensorInfo.getGid(),sensorInfo.getSid(),"DIM",progress);
+        Call<CommandResponse> call=wiSysApiService.setValue(sensorInfo.getGid(),sensorInfo.getSid(),"DIM",progress);
+
         call.enqueue(new Callback<CommandResponse>() {
             @Override
             public void onResponse(Call<CommandResponse> call, Response<CommandResponse> response) {
@@ -321,7 +323,7 @@ public class SensorDetailActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            String message;
+            String message = null;
             if(!msg.getData().isEmpty()){
 
                 cmd_id=msg.getData().getInt("cmd_id");
@@ -345,8 +347,9 @@ public class SensorDetailActivity extends AppCompatActivity {
                     break;
                 case QUERY_STATUS:
                     checkStatus(cmd_id);
+                    break;
                 default:
-                    message="UnKnown Response";
+                    message="Waiting for response";
             }
 
 

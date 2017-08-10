@@ -34,7 +34,7 @@ public class SensorAdapter extends ArrayAdapter<SensorInfo> {
 
         switch(sensorInfo.getStype()){
             case "SENSOR_PWM":
-                switch (sensorInfo.getVal()){
+                switch ((int)sensorInfo.getVal()){
                     case 0:
                         stype.setCompoundDrawablesWithIntrinsicBounds(null,null,getContext().getResources().getDrawable(R.drawable.ic_bulb_filled_grey),null);
                         break;
@@ -59,7 +59,7 @@ public class SensorAdapter extends ArrayAdapter<SensorInfo> {
                 stype.setCompoundDrawablesWithIntrinsicBounds(null,null,getContext().getResources().getDrawable(R.drawable.ic_water_drop),null);
                 break;
             case "SENSOR_PDS":
-                switch (sensorInfo.getVal()){
+                switch ((int)sensorInfo.getVal()){
                     case 0:
                         stype.setCompoundDrawablesWithIntrinsicBounds(null,null,getContext().getResources().getDrawable(R.drawable.ic_people_outline_black_24dp),null);
                         break;

@@ -33,13 +33,9 @@ public interface WiSysApiService {
     @GET("sensorlist/{gid}")
     Call<List<SensorInfo>> getSensorInfoList(@Path("gid") int gid);
 
-//    http://<server_url>/api/newcommand/<gwid>/<sid>/<cmd>/<val>
-    @FormUrlEncoded
-    @POST("newcommand/{gwid}/{sid}/DIM/{val}")
-    Call<CommandResponse> setValue(@Path("gwid") int gwid,@Path("sid") int sid,@Field("val") int val);
+    @POST("newcommand/{gid}/{sid}/{cmd}/{val}")
+    Call<CommandResponse> setValue(@Path("gid") int gid,@Path("sid") int sid,@Path("cmd") String cmd,@Path("val") int val);
 
-
-    //http://139.59.4.45:8500/api/commandstatus/51/8925
     @GET("commandstatus/{gwid}/{cmd_id}")
     Call<CommandStatusResponse> getTheStatus(@Path("gwid") int gwid, @Path("cmd_id") int cmd_id);
 

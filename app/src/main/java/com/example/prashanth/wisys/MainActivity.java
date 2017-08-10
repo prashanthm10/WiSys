@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onFailure(Call<List<Gateway>> call, Throwable t) {
                 Log.d("API_RESPONSE"," Failed");
-                Toast.makeText(MainActivity.this, "Error !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Gateway List Error !!!", Toast.LENGTH_SHORT).show();
                 gatewayListPb.setVisibility(View.GONE);
             }
         });
@@ -223,7 +223,8 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onFailure(Call<List<SensorInfo>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error !!!", Toast.LENGTH_SHORT).show();
+                Log.d("SENSOR_INFO",t.getMessage());
+                Toast.makeText(MainActivity.this, "Sensor Info  Error !!!", Toast.LENGTH_SHORT).show();
             }
         });
     }

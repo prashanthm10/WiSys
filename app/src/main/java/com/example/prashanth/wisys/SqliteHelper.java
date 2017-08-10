@@ -24,7 +24,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("CREATE TABLE NODE(nid INTEGER PRIMARY KEY,gid INTEGER,nw_addr INTEGER,ieee_addr TEXT,capab INTEGER,status INTEGER,SENSORS INTEGER,interval INTEGER);");
 
-        sqLiteDatabase.execSQL("CREATE TABLE SENSORINFO(sid INTEGER PRIMARY KEY,nid INTEGER,gid INTEGER,stype TEXT,epid INTEGER,value INTEGER)");
+        sqLiteDatabase.execSQL("CREATE TABLE SENSORINFO(sid INTEGER PRIMARY KEY,nid INTEGER,gid INTEGER,stype TEXT,epid INTEGER,value REAL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE SENSOR(sid INTEGER PRIMARY KEY,gid INTEGER,nid INTEGER,epid INTEGER,stype TEXT,data INTEGER,timestamp TEXT);");
     }
